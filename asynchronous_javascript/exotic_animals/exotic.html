@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Exotic Animals</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="exotic.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+  </head>
+  <script id="animals-template" type="text/x-handlebars">
+    {{#each animals}}
+    <figure>
+      <img src="{{src}}"/>
+      <figcaption>{{figcaption}}</figcaption>
+    </figure>
+    {{/each}}
+  </script>
+<body>
+  <h1>Exotic Animals</h1>
+  <div id="animal-photos">
+  </div>
+  <script src="exotic.js"></script>
+</body>

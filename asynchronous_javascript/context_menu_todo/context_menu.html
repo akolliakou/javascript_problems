@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Todos</title>
+    <meta charset="UTF-8" />
+    <!-- <link rel="stylesheet" href="./stylesheets/context_menu.css" /> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+  </head>
+  <body>
+    <h1>Todos</h1>
+    <script id="todos_template" type="text/handlebars">
+      {{#each todo_items}}
+      <div class="todo" data-id={{id}}>
+        {{title}}
+      </div>
+      {{/each}}
+    </script>
+    <script id="context-template" type="text/handlebars">
+      <div id="context-menu">
+        <ul>
+          <li id="edit">Edit Todo</li>
+          <li id="show">Show Details</li>
+          <li id="delete" data-id="{{id}}">Delete</li>
+        </ul>
+      </div>
+    </script>
+    <script id="prompt-template" type="text/handlebars">
+      <div id="prompt" data-id="{{id}}">
+        Are you sure you want to delete this todo?
+        <input id="yes" type="submit" value="Yes">
+        <input id="no" type="submit" value="No">
+      </div>
+    </script>
+  </body>
+  <script src="contextmenu.js"></script>

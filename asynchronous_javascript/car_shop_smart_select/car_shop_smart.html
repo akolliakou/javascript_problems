@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Cars for Sale</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="stylesheets/car_shop_smart.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script id="cars-template" type="text/x-handlebars">
+      <div id="cars">
+        {{#each cars}}
+        <div>
+          <img src="{{image}}">
+          <h3>{{make}}</h3>
+          <p>Year: {{year}}</p>
+          <p>Price: ${{price}}</p>
+          <input type="button" value="Buy">
+        </div>
+        {{/each}}
+      </div>
+    </script>
+
+    <script id="filters-template" type="text/x-handlebars">
+      <div id="filters">
+          <label for="make" value="Make">Make</label>
+          <select id="makes">
+            <option value="All">All</option>
+            {{> make-options}}
+          </select>
+
+
+          <label for="model" value="Model">Model</label>
+          <select id="models">
+            <option value="All">All</option>
+            {{> model-options}}
+          </select>
+
+
+
+          <label for="year" value="Year">Year</label>
+          <select id="years">
+            <option value="All">Any</option>
+            {{> year-options}}
+          </select>
+
+
+
+          <label for="price" value="Price">Price</label>
+          <select id="prices">
+            <option value="All">Any</option>
+            {{> price-options}}
+          </select>
+
+        <input id="filter" type="button" value="Filter">
+      </div>
+    </script>
+
+    <script type="text/x-handlebars-template" id="make-options">
+      {{#each makes}}
+        <option value="{{.}}">{{.}}</option>
+      {{/each}}
+    </script>
+
+    <script type="text/x-handlebars-template" id="model-options">
+      {{#each models}}
+        <option value="{{.}}">{{.}}</option>
+      {{/each}}
+    </script>
+
+    <script type="text/x-handlebars-template" id="price-options">
+      {{#each prices}}
+        <option value="{{.}}">{{.}}</option>
+      {{/each}}
+    </script>
+
+    <script type="text/x-handlebars-template" id="year-options">
+      {{#each years}}
+        <option value="{{.}}">{{.}}</option>
+      {{/each}}
+    </script>
+
+  </head>
+  <body>
+    <h1>Buy Used Cars</h1>
+  </body>
+  <script src="javascripts/car_shop_smart.js"></script>

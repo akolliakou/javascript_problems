@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Programming Languages</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  <script>
+    Handlebars.registerHelper('getShortDescription', function(string) {
+      return string.slice(0, 140) + '...';
+    });
+    Handlebars.registerHelper('isStringShort', function(string) {
+      return string.length < 140;
+    });
+  </script>
+  <script id="languages_template" type="text/x-handlebars">
+    {{#each languages}}
+      {{#if (isStringShort description)}}
+        <div>
+          <h2>{{name}}</h2>
+          <p class="short">{{description}}</p>
+        </div>
+      {{else}}
+        <div>
+          <h2>{{name}}</h2>
+          <p class="short">{{getShortDescription description}}</p>
+          <p class="long" style="display: none">{{description}}</p>
+          <input class="more" type="button" value="Show More">
+          <input class="less" type="button" value="Show Less" style="display: none">
+        </div>
+      {{/if}}
+    {{/each}}
+  </script>
+</head>
+<body>
+  <h1>Programming Languages</h1>
+</body>
+<script src="languages.js"></script>
